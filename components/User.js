@@ -8,7 +8,7 @@ const User = ({item, nav: {navigate}}) => {
     }
 
     return <View>
-        <Text style={styles.userBox}>{item.id} {item.name}</Text>
+        <Text style={styles.userBox}>{item.id} - {item.name}</Text>
         <Button title={'user info'} onPress={onPress}/>
     </View>;
 };
