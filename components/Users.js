@@ -4,15 +4,19 @@ import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {getUsers} from "../services/user.service";
 import User from "./User";
 
-const Users = () => {
+const Users = (props) => {
+    const {navigation} = props;
+
     const [users, setUsers] = useState();
     useEffect (()=>{
         getUsers().then(value => setUsers([...value]))
     },[]);
-    return <View style={styles.users}>
+
+    return <View style={styles.userBox}>
         <FlatList
+            style={styles.users}
             data={users}
-            renderItem={({item}) => <User item={item}/>}
+            renderItem={({item}) => <User item={item} nav={navigation}/>}
             keyExtractor={item => ''+item.id}
         />
     </View>;
@@ -23,5 +27,8 @@ const styles = StyleSheet.create({
     users: {
         flex: 1,
         width: '70%'
+    },
+    userBox: {
+        alignItems: 'center'
     }
 });
