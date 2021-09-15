@@ -13,7 +13,7 @@ const UsersPageNav = () => {
     return (
         <StackNavigator.Navigator screenOptions={{headerShown: false}}
         >
-            <StackNavigator.Screen name={'users'} component={Users} />
+            <StackNavigator.Screen name={'userslist'} component={Users} />
             <StackNavigator.Screen name={'usrInfo'} component={UserInfo}/>
         </StackNavigator.Navigator>
     )

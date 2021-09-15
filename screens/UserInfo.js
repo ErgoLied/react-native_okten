@@ -11,7 +11,7 @@ const UserInfo = ({route: {params: {data}}, navigation}) => {
         <Button
             title="Go back"
             color='#ad8aff'
-            onPress={() => navigation.navigate('users')}
+            onPress={() => navigation.navigate('userslist')}
         />
     </View>;
 };
