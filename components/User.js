@@ -9,7 +9,7 @@ const User = ({item, nav: {navigate}}) => {
 
     return <View>
         <Text style={styles.userBox}>{item.id} - {item.name}</Text>
-        <Button title={'user info'} onPress={onPress}/>
+        <Button title={'user info'} onPress={onPress} color='#ad8aff'/>
     </View>;
 };
 export default User;
@@ -17,7 +17,6 @@ export default User;
 const styles = StyleSheet.create({
     userBox: {
         flex: 1,
-        backgroundColor: 'aliceblue',
         margin: 10,
         textAlign: 'center'
     }

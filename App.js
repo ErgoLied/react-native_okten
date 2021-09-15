@@ -1,21 +1,32 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
-import Users from "./components/Users";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Home from "./components/Home";
-import UserInfo from "./screens/UserInfo";
+import UsersPageNav from "./screens/UsersPageNav";
 
-const StackNavigator = createStackNavigator();
+const BottomTabs = createBottomTabNavigator();
 
 export default function App() {
     return (
         <NavigationContainer>
-            <StackNavigator.Navigator initialRouteName="Users">
-                <StackNavigator.Screen name={'Home'} component={Home}/>
-                <StackNavigator.Screen name={'Users'} component={Users}/>
-                <StackNavigator.Screen name={'usrInfo'} component={UserInfo}/>
-            </StackNavigator.Navigator>
+            <BottomTabs.Navigator
+                tabBarOption={{tabStyle: {flex: 1, alignItems: 'center', justifyContent: 'center'}}}
+                screenOptions={{tabBarActiveTintColor: '#ad8aff'}}>
+
+                <BottomTabs.Screen name={'users'} component={UsersPageNav} options={{
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons name="account-outline" color={color} size={size}/>
+                    )
+                }}/>
+                <BottomTabs.Screen name={'home'} component={Home} options={{
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons name="home" color={color} size={size}/>
+                    )
+                }}/>
+
+            </BottomTabs.Navigator>
         </NavigationContainer>
     );
 }

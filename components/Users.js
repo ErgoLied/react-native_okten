@@ -12,14 +12,14 @@ const Users = (props) => {
         getUsers().then(value => setUsers([...value]))
     },[]);
 
-    return <View style={styles.userBox}>
+    return (<View style={styles.userBox}>
         <FlatList
             style={styles.users}
             data={users}
             renderItem={({item}) => <User item={item} nav={navigation}/>}
             keyExtractor={item => ''+item.id}
         />
-    </View>;
+    </View>);
 };
 export default Users;
 
